@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>김한슬 | 헤이딜러 채용 매니저 지원</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --primary: #4870FF;     /* 헤이딜러 파란색 버튼 */
+      --primary-light: rgba(72, 112, 255, 0.1);
+      --secondary: #36D576;   /* 헤이딜러 초록색 (강조) */
+      --secondary-light: rgba(54, 213, 118, 0.1);
+      --dark-bg: #000000;     /* 헤이딜러 앱 다크모드 배경 */
+      --card-bg: #272A33;     /* 헤이딜러 다크모드 카드 배경 */
+      --white: #FFFFFF;
+      --text-white: #FFFFFF;
+      --text-light: #CDCFD6;
+      --text-medium: #A0A3AF;
+      --text-dark: #292F3F;
+      --plate-border: #D1D4DF;
+      --btn-blue: #4468F9;    /* 헤이딜러 앱 파란 버튼 */
+      --nav-active: #536FFA;  /* 헤이딜러 앱 하단 네비게이션 활성 색상 */
+      --radius-sm: 4px;
+      --radius: 8px;
+      --radius-lg: 16px;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-white);
+      line-height: 1.6;
+      font-size: 15px;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    a:hover {
+      color: var(--text-white);
+    }
+    
+    /* 헤이딜러 스타일 앱 컨테이너 */
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 70px; /* 하단 네비게이션 공간 */
+    }
+    
+    /* 헤더 */
+    .app-header {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: var(--dark-bg);
+      position: relative;
+    }
+    
+    /* 헤이딜러 로고 스타일 */
+    .app-logo {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .heydiler-logo {
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--white);
+    }
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      background-color: var(--btn-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: white;
+    }
+    .header-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.3;
+    }
+    
+    /* 차량번호판 스타일 */
+    .license-plate {
+      border: 2px solid var(--plate-border);
+      border-radius: 8px;
+      padding: 12px;
+      margin: 15px 0;
+      background-color: white;
+      color: #aaaacc;
+      font-size: 22px;
+      text-align: center;
+      font-weight: 700;
+      opacity: 0.8;
+      letter-spacing: 4px;
+      position: relative;
+    }
+    
+    .license-plate::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background-color: #ccccdd;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+    }
+    
+    .license-plate::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background-color: #ccccdd;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+    }
+    
+    /* 헤이딜러 카드 스타일 */
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin: 15px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* 헤이딜러 버튼 스타일 */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 24px;
+      font-weight: 500;
+      font-size: 15px;
+      margin: 15px 0;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background-color: var(--btn-blue);
+      color: white;
+      font-weight: 600;
+    }
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--text-light);
+      color: var(--text-light);
+    }
+    .btn-outline:hover {
+      border-color: var(--text-white);
+      color: var(--text-white);
+    }
+    
+    /* 숫자/통계 그리드 */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    
+    /* 성과 항목 */
+    .achievement-item {
+      display: flex;
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 16px;
+      background-color: var(--card-bg);
+      border-left: 3px solid var(--primary);
+    }
+    .achievement-icon {
+      width: 36px;
+      height: 36px;
+      background-color: var(--primary-light);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      color: var(--primary);
+      font-size: 18px;
+    }
+    .achievement-content {
+      flex: 1;
+    }
+    .achievement-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .achievement-badge {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+    .green-badge {
+      background-color: var(--secondary-light);
+      color: var(--secondary);
+    }
+    .achievement-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+    
+    /* 페이드 아웃 애니메이션 */
+    .page.fade-out {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    
+    /* 하이라이트 텍스트 */
+    .highlight {
+      color: var(--secondary);
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    
+    /* 섹션 제목 */
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 30px 20px 15px;
+    }
+    
+    /* 태그 스타일 */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .tag {
+      background-color: var(--primary-light);
+      color: var(--text-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    
+    /* 앱 상단 상태바 */
+    .status-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 999;
+    }
+    .time {
+      background-color: var(--secondary);
+      color: white;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 14px;
+    }
+    .battery {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      font-size: 12px;
+    }
+
+    /* 헤이딜러 스타일 하단 네비게이션 */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background-color: var(--dark-bg);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 999;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--text-medium);
+      font-size: 12px;
+      padding: 8px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: all 0.2s ease;
+    }
+    .nav-item.active {
+      color: var(--nav-active);
+      opacity: 1;
+    }
+    .nav-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    
+    /* 링크 스타일 */
+    .app-link {
+      display: flex;
+      padding: 16px 20px;
+      align-items: center;
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      margin: 12px 20px;
+      color: var(--text-white);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .app-link:hover {
+      transform: translateX(5px);
+      background-color: rgba(72, 112, 255, 0.1);
+      color: var(--white);
+    }
+    .app-link-icon {
+      width: 36px;
+      height: 36px;
+      background-color: var(--primary-light);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      color: var(--primary);
+      font-size: 18px;
+    }
+    .app-link-title {
+      font-weight: 500;
+      flex: 1;
+    }
+    .app-link-arrow {
+      color: var(--text-medium);
+    }
+    
+    /* 페이지 콘텐츠 */
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+      padding-bottom: 90px;
+    }
+    .page.active {
+      display: block;
+    }
+    
+    /* 애니메이션 */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* 헤이딜러 스타일 강조 메시지 */
+    .highlight-message {
+      background-color: var(--primary-light);
+      padding: 16px;
+      border-radius: var(--radius);
+      margin: 20px 20px 30px;
+      border-left: 3px solid var(--primary);
+    }
+    .highlight-message-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    
+    /* 프로필 스타일 */
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      background-color: var(--primary-light);
+      padding: 4px;
+    }
+    .profile-name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .profile-title {
+      color: var(--text-light);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- 페이지 1: 프로필 소개 -->
+    <div id="profile-page" class="page">
+      <header class="app-header">
+        <div class="app-logo">
+          <div class="heydiler-logo">
+            <div class="logo-icon">🚗</div>
+            김한슬 | 채용 매니저
+          </div>
+        </div>
+        
+        <h1 class="header-title">안녕하세요,<br>채용 전략가입니다</h1>
+      </header>
+
+      <div class="profile-section">
+        <img src="https://i.ibb.co/MN5bQBC/profile-placeholder.jpg" alt="김한슬 프로필" class="profile-image">
+        <h1 class="profile-name">김한슬</h1>
+        <div class="profile-title">채용 전략가 & HR 비즈니스 파트너</div>
+      </div>
+
+      <div class="btn btn-primary" style="margin-bottom: 20px;">
+        채용 전략가, 김한슬입니다 →
+      </div>
+      
+      <div class="highlight-message">
+        <div class="highlight-message-title">안정적인 성장, 탁월한 채용으로부터</div>
+        <p>헤이딜러가 추구하는 '중고차 시장 투명화'와 '사용자 경험 혁신'처럼, 제가 추구하는 가치는 '채용의 투명성'과 '인재 경험 혁신'입니다.</p>
+      </div>
+      
+      <div class="card">
+        <p style="line-height: 1.7; margin-bottom: 15px;">
+          스타트업에서 <span class="highlight">10명 → 63명</span> 규모로 성장하고, 이후 <span class="highlight">30명</span>으로 축소하는 과정을 경험했습니다. 이 과정에서 채용·온보딩·평가·보상 등 HR 전주기를 설계하고 운영했습니다.
+        </p>
+        <p style="line-height: 1.7;">
+          현재는 <strong>채용 전략 수립</strong>, <strong>조직 구조 진단</strong>과 함께 <strong>전사 AI 도입</strong> 프로젝트를 리드하며 비즈니스 목표 달성을 위한 인재 전략을 실행하고 있습니다.
+        </p>
+      </div>
+      
+      <!-- 핵심 성과 섹션 -->
+      <h2 class="section-title">핵심 성과</h2>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">240%</div>
+          <div class="stat-label">채용 퍼널 전환율 개선</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">10→63명</div>
+          <div class="stat-label">조직 스케일업 경험</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">리빌딩 리텐션 유지율</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">30%↓</div>
+          <div class="stat-label">조기 이탈률 감소</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 페이지 2: 경력 -->
+    <div id="career-page" class="page">
+      <header class="app-header">
+        <div class="app-logo">
+          <div class="heydiler-logo">
+            <div class="logo-icon">🚗</div>
+            김한슬 | 채용 매니저
+          </div>
+        </div>
+        
+        <h1 class="header-title">채용 경력 & 성과</h1>
+        <div class="license-plate">HRBP 2021-25</div>
+      </header>
+      
+      <div class="highlight-message">
+        <div class="highlight-message-title">채용은 '사람 뽑기'가 아닌 '미래 만들기'</div>
+        <p>매출·사용자·투자 유치보다 앞서는 성장의 기반은 바로 '적합한 인재'입니다. 채용은 단순 인력 충원이 아닌 비즈니스 성공의 핵심 전략입니다.</p>
+      </div>
+      
+      <!-- 모비데이즈 -->
+      <div class="achievement-item">
+        <div class="achievement-icon">💼</div>
+        <div class="achievement-content">
+          <div class="achievement-title">
+            모비데이즈 | HRBP
+            <span class="achievement-badge">2024.12~현재</span>
+          </div>
+          <div class="achievement-desc">
+            <p style="margin-bottom: 10px;">→ 채용 퍼널 <span class="highlight">240%</span> 개선 / AI 도입으로 업무 효율 <span class="highlight">30%</span> 향상</p>
+            
+            <p style="margin-bottom: 8px;">180명 규모 마케팅 대행사에서 <strong>채용 프로세스 개선</strong>과 <strong>인재 유치 전략</strong>을 주도했습니다.</p>
+            
+            <ul style="list-style-type: none; padding-left: 0;">
+              <li style="position: relative; padding-left: 12px; margin-bottom: 6px;">
+                <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+                PM 채용 퍼널 재설계로 지원자 전환율 <span class="highlight">240%</span> 향상
+              </li>
+              <li style="position: relative; padding-left: 12px; margin-bottom: 6px;">
+                <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+                리드급 인재 대상 커피챗 및 PM 직군 사전인터뷰 진행 (PM은 합/불 결정)
+              </li>
+              <li style="position: relative; padding-left: 12px; margin-bottom: 6px;">
+                <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+                전사 AI 도입 파일럿 운영 및 확산 계획 수립
+              </li>
+            </ul>
+            
+            <div class="tags">
+              <div class="tag">채용 전략</div>
+              <div class="tag">인재 평가</div>
+              <div class="tag">변화 관리</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 클래스유 -->
+      <div class="achievement-item">
+        <div class="achievement-icon">💼</div>
+        <div class="achievement-content">
+          <div class="achievement-title">
+            클래스유 | HR 매니저
+            <span class="achievement-badge">2021.11~2024.11</span>
+          </div>
+          <div class="achievement-desc">
+            <p style="margin-bottom: 10px;">→ 스케일업 <span class="highlight">10→63명</span> / 개발팀 리빌딩 리텐션 <span class="highlight">100%</span> 달성</p>
+            
+            <p style="margin-bottom: 8px;">교육콘텐츠 플랫폼 스타트업에서 <strong>전체 채용 프로세스 설계 및 운영</strong>을 담당했습니다.</p>
+            
+            <ul style="list-style-type: none; padding-left: 0;">
+              <li style="position: relative; padding-left: 12px; margin-bottom: 6px;">
+                <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+                창업자 철학 문서화 & 인재상 정립으로 일관된 채용 기준 확립
+              </li>
+              <li style="position: relative; padding-left: 12px; margin-bottom: 6px;">
+                <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+                <strong>컬처핏 1차 면접 프로세스 설계·운영 및 합/불 판단</strong>
+              </li>
+              <li style="position: relative; padding-left: 12px; margin-bottom: 6px;">
+                <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+                온보딩 체계화로 신입 적응 기간 단축 & 조기 이탈률 <span class="highlight">50%</span> 감소
+              </li>
+            </ul>
+            
+            <div class="tags">
+              <div class="tag">채용 설계</div>
+              <div class="tag">인재 선발</div>
+              <div class="tag">리텐션 관리</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 페이지 3: 프로젝트 -->
+    <div id="projects-page" class="page">
+      <header class="app-header">
+        <div class="app-logo">
+          <div class="heydiler-logo">
+            <div class="logo-icon">🚗</div>
+            김한슬 | 채용 매니저
+          </div>
+        </div>
+        
+        <h1 class="header-title">주요 채용 프로젝트</h1>
+        <div class="license-plate">HR-PRJ 2023</div>
+      </header>
+      
+      <div class="highlight-message">
+        <div class="highlight-message-title">사고 과정이 결과를 만듭니다</div>
+        <p>문제를 정의하고, 근본 원인을 찾아내며, 데이터를 기반으로 접근하는 문제해결 방식이 제 채용 프로젝트의 핵심입니다.</p>
+      </div>
+      
+      <!-- 컬처핏 면접 -->
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
+          <span>컬처핏 중심 면접 시스템 설계 (클래스유)</span>
+          <span style="font-size: 14px; color: var(--secondary); background-color: var(--secondary-light); padding: 2px 8px; border-radius: 12px;">리텐션 100%</span>
+        </h3>
+        
+        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">문제:</strong> 기술 역량보다 <span class="highlight">문화 적합성을 우선시</span>했고, 말(의지)만 믿고 채용된 측면이 있었습니다.<br>
+          기술적 역량은 거의 보지 않고 컬처핏에 집중했으나, 실제 경험이나 행동 검증이 부족했습니다.
+        </p>
+        
+        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">접근:</strong><br>
+          1. 핵심 가치별 <span class="highlight">행동 기반 질문</span> 체계화 - 문화적 fit을 검증하면서도 실제 행동 패턴 파악<br>
+          2. 4점 척도의 평가 프레임워크 구축 (예상 응답 + 레드플래그 포함)<br>
+          3. 면접관 가이드북 제작 및 교육 진행<br>
+          4. 90일 성과 리뷰와 면접 평가 연계 분석
+        </p>
+        
+        <p style="font-size: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">결과:</strong> 리빌딩 개발팀 <span class="highlight">리텐션 100%</span> 달성 / 면접-성과 일치도 <span class="highlight">85%</span> 향상 / <strong>실제 성과와 문화적 적합성 모두 갖춘</strong> 인재 채용 성공
+        </p>
+      </div>
+      
+      <!-- 채용 퍼널 -->
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
+          <span>채용 퍼널 최적화 프로젝트 (모비데이즈)</span>
+          <span style="font-size: 14px; color: var(--secondary); background-color: var(--secondary-light); padding: 2px 8px; border-radius: 12px;">전환율 240%↑</span>
+        </h3>
+        
+        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">문제:</strong> 지원자 대비 서류 합격률이 낮음 (10% 미만) / JD가 모호하고 비전과 연결성 부족
+        </p>
+        
+        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">접근:</strong><br>
+          1. 채널별 데이터 분석 & 우수 직원 페르소나 구축<br>
+          2. 명확한 기대치와 성장 경로가 담긴 JD 재설계<br>
+          3. 직무별 성공 사례 및 '실제 업무' 예시 포함<br>
+          4. 지속적인 JD 개선과 데이터 모니터링
+        </p>
+        
+        <p style="font-size: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">결과:</strong> PM 직군 지원자-서류합격 전환율 <span class="highlight">240%</span> 증가 / 채용 소요 기간 <span class="highlight">35%</span> 단축
+        </p>
+      </div>
+      
+      <!-- AI 도입 프로젝트 -->
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
+          <span>전사 AI 도입 계획 (모비데이즈)</span>
+          <span style="font-size: 14px; color: var(--secondary); background-color: var(--secondary-light); padding: 2px 8px; border-radius: 12px;">진행중</span>
+        </h3>
+        
+        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">문제:</strong> 180명 중 20명만 AI 활용, 대부분 "어렵다" or "굳이?"라는 반응
+        </p>
+        
+        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">접근:</strong><br>
+          1. HR팀 파일럿으로 면접 기록·문서 작업 자동화 테스트<br>
+          2. 부서별 에반젤리스트 선정 & 교육 프로그램 기획<br>
+          3. 사례 중심 교육과 실전 워크숍 계획 수립<br>
+          4. 단계별 확산 전략 수립 (현재 단계: 파일럿 운영 및 검증)
+        </p>
+        
+        <p style="font-size: 15px; color: var(--text-light);">
+          <strong style="color: var(--text-white);">목표:</strong> 면접·문서 작업 <span class="highlight">30%↓</span> / AI 활용 인원 <span class="highlight">20→100명+</span>으로 확대
+        </p>
+      </div>
+    </div>
+    
+    <!-- 페이지 4: 헤이딜러 지원 동기 -->
+    <div id="motivation-page" class="page active">
+      <header class="app-header">
+        <div class="app-logo">
+          <div class="heydiler-logo">
+            <div class="logo-icon">🚗</div>
+            김한슬 | 채용 매니저
+          </div>
+        </div>
+        
+        <h1 class="header-title">헤이딜러 지원 동기</h1>
+        <div class="license-plate">WHY 2025</div>
+      </header>
+      
+      <div class="highlight-message">
+        <div class="highlight-message-title">혁신을 위한 인재, 성장을 위한 구조</div>
+        <p>헤이딜러처럼 시장의 고정관념을 깨는 혁신에는 '생각이 다른' 인재와 '효과적인' 조직 구조가 필요합니다.</p>
+      </div>
+      
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">중고차 시장 혁신에 대한 열정</h3>
+        <p style="line-height: 1.7; margin-bottom: 20px; color: var(--text-light);">
+          개발자 지인의 추천을 통해 헤이딜러를 알게 되었고, <strong style="color: var(--text-white);">불투명했던 중고차 시장을 '경매·데이터 기반'으로 혁신한</strong> 사례에 큰 감명을 받았습니다. '차' 자체보다는 <span class="highlight">"구조적 혁신"</span>이라는 가치가 제 커리어 가치관과 맞닿아있습니다.
+        </p>
+        
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">채용이 곧 비즈니스 미래라는 신념</h3>
+        <p style="line-height: 1.7; margin-bottom: 20px; color: var(--text-light);">
+          저는 <strong style="color: var(--text-white);">채용이 단순 인력 충원이 아니라, 회사 미래를 함께 만드는 전략적 활동</strong>이라고 믿습니다. 3년간 컬처핏 면접을 설계·운영하며, <span class="highlight">표면적 스펙보다 '사고방식·실행력·협업 태도'</span>가 장기 성장과 이탈률에 결정적 영향을 준다는 것을 확인했습니다.
+        </p>
+        
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">현재 HRBP 경험 + 더 큰 임팩트</h3>
+        <p style="line-height: 1.7; color: var(--text-light);">
+          지금 몸담고 있는 회사에서도 채용 전략 및 AI 도입 프로젝트를 통해 의미 있는 변화를 만들었지만, 더욱 <span class="highlight">직접적·전사적인 비즈니스 임팩트</span>를 추구하고 싶습니다. 빠르게 확장하는 헤이딜러의 조직을 디자인하며, 스타트업의 '혁신 정신'을 가진 인재들을 발굴·육성하는 일이 제가 가장 잘할 수 있는 역할이라고 생각합니다.
+        </p>
+      </div>
+      
+      <div class="btn btn-primary" style="margin: 20px 20px;" id="strategy-btn">
+        채용 전략 제안 보기 →
+      </div>
+    </div>
+    
+    <!-- 페이지 5: 채용 전략 제안 -->
+    <div id="strategy-page" class="page">
+      <header class="app-header">
+        <div class="app-logo">
+          <div class="heydiler-logo">
+            <div class="logo-icon">🚗</div>
+            김한슬 | 채용 매니저
+          </div>
+        </div>
+        
+        <h1 class="header-title">헤이딜러 채용 전략 제안</h1>
+        <div class="license-plate">STRAT 2025</div>
+      </header>
+      
+      <div class="highlight-message">
+        <div class="highlight-message-title">비즈니스 확장에 맞춘 인재 전략</div>
+        <p>헤이딜러의 다음 성장 단계를 위한 구체적인 채용 및 인재 관리 전략 제안입니다.</p>
+      </div>
+      
+      <!-- 헤이딜러 비즈니스 도전 이해 -->
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
+          <span>헤이딜러 비즈니스 도전 이해</span>
+        </h3>
+        
+        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+          최근 헤이딜러는 <strong style="color: var(--white);">중고차 판매 플랫폼</strong>에서 출발해, <strong style="color: var(--white);">중고차 생태계 전반</strong>으로 확장하는 중요한 전환점에 있습니다:
+        </p>
+        
+        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 15px;">
+          <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
+            <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+            <strong style="color: var(--white);">판매 중심 → 구매 영역</strong>으로의 확장은 신뢰 메커니즘, UX 설계, 품질 보증 등 <span class="highlight">새로운 역량</span>을 요구
+          </li>
+          <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
+            <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+            <strong style="color: var(--white);">고관여/저빈도 제품</strong> 특성상 리텐션과 재방문율을 높이는 <span class="highlight">장기적 고객 접점 전략</span> 필요
+          </li>
+          <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
+            <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+            IPO 준비 과정에서 <strong style="color: var(--white);">매출 다각화와 수익성 개선</strong>이 중요한 경영 과제
+          </li>
+        </ul>
+        
+        <p style="font-size: 15px; color: var(--text-light);">
+          이러한 변화는 단순히 기능을 늘리는 것을 넘어, <strong style="color: var(--white);">기업 문화와 조직 역량</strong> 자체를 한 단계 성장시키는 일이기도 합니다.
+        </p>
+      </div>
+      
+      <!-- 채용/HR 관점에서의 핵심 과제 -->
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
+          <span>채용/HR 관점에서의 핵심 과제</span>
+        </h3>
+        
+        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 15px;">
+          <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
+            <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+            기존 헤이딜러의 성공 DNA(투명성·실행력·고객중심)를 유지하면서도, <span class="highlight">확장된 시장</span>에 필요한 새로운 사고방식과 전문성을 갖춘 인재 확보
+          </li>
+          <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
+            <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+            스타트업 특유의 <strong style="color: var(--white);">혁신 정신</strong>과 <strong style="color: var(--white);">치열한 실행력</strong>을 모두 갖춘 인재 발굴 및 성과 창출 환경 조성
+          </li>
+          <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
+            <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+            대형 IT 기업과의 인재 경쟁 속에서, <span class="highlight">'중고차 시장 혁신'이라는 비전</span>을 매력적으로 제시
+          </li>
+          <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
+            <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
+            IPO 단계에 맞춰 <strong style="color: var(--white);">ROI 관점의 채용 전략</strong> 수립
+          </li>
+        </ul>
+      </div>
+      
+      <!-- 제안하는 접근방식 -->
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
+          <span>제안하는 채용 전략 접근</span>
+        </h3>
+        
+        <!-- 역량·문화 적합성 균형 채용 시스템 -->
+        <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">1. 역량·문화 적합성 균형 채용 시스템</h4>
+        
+        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+          '기술/비즈니스 역량 평가, 문제해결 방식, 문화 적합도' 세 축을 구조화해, <span class="highlight">일관되고 예측력 높은 면접 프로세스</span>를 설계하겠습니다.
+        </p>
+        
+        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+          특히 "투명성과 실행력을 중시하는 헤이딜러 문화"를 반영해, 후보자가 <strong style="color: var(--white);">실제 상황에서 어떻게 행동했는지</strong> 구체적 사례 기반으로 검증하는 절차를 강화하고 싶습니다.
+        </p>
+        
+        <!-- 전략적 인재 파이프라인 & 브랜딩 -->
+        <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">2. 전략적 인재 파이프라인 & 브랜딩</h4>
+        
+        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+          중고차 구매/거래 신뢰 구축, AI 기반 가격산정, 신사업 운영 등 다양한 분야를 지원할 <span class="highlight">하이브리드 인재 풀</span>을 선제적으로 발굴하겠습니다.
+        </p>
+        
+        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+          업계 밋업, 오프라인 네트워킹, 리퍼럴 제도 등 적극적인 소싱 채널을 늘리고, <strong style="color: var(--white);">"중고차 시장 혁신"</strong>이라는 미션을 매력적으로 스토리텔링해 인재를 끌어오겠습니다.
+        </p>
+        
+        <!-- 데이터 기반 채용 & ROI 관리 -->
+        <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">3. 데이터 기반 채용 & ROI 관리</h4>
+        
+        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+          채용 과정에서도 <span class="highlight">데이터 분석</span>을 도입해 소스별 성과, 면접 예측력, 입사 후 성과 등을 추적·개선하겠습니다.
+        </p>
+        
+        <p style="font-size: 15px; color: var(--text-light);">
+          IPO 준비단계에 맞춰 채용 비용 대비 성과(채용 CAC), 포지션별 우선순위 설정 등 <strong style="color: var(--white);">효율성·성과 중심의 채용 투자</strong>를 전략적으로 지원하고 싶습니다.
+        </p>
+      </div>
+      
+      <!-- 마무리 메시지 -->
+      <div class="card">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">마무리</h3>
+        <p style="line-height: 1.7; color: var(--text-light);">
+          중고차 시장은 저에게 낯선 분야이지만, 오히려 <span class="highlight">'외부자 시각'</span>이 채용·조직 운영에도 새로운 통찰을 줄 수 있으리라 믿습니다. <strong style="color: var(--white);">"불투명한 시장을 투명하게 바꾼다"</strong>는 헤이딜러의 미션에, 저의 역량과 열정을 합쳐 <strong style="color: var(--white);">다음 단계 성장</strong>에 기여하고 싶습니다.
+        </p>
+      </div>
+    </div>
+    
+    <!-- 페이지 6: 연락처 -->
+    <div id="contact-page" class="page">
+      <header class="app-header">
+        <div class="app-logo">
+          <div class="heydiler-logo">
+            <div class="logo-icon">🚗</div>
+            김한슬 | 채용 매니저
+          </div>
+        </div>
+        
+        <h1 class="header-title">만나서 이야기 나눠요</h1>
+        <div class="license-plate">HR 2025</div>
+      </header>
+      
+      <div class="highlight-message">
+        <div class="highlight-message-title">헤이딜러의 인재 경험을 함께 혁신하고 싶습니다</div>
+        <p>투명한 중고차 거래처럼, 투명하고 효과적인 채용 과정을 만들어 헤이딜러의 성장에 기여하겠습니다.</p>
+      </div>
+      
+      <!-- 연락처 링크 -->
+      <a href="mailto:staur0301@naver.com" class="app-link">
+        <div class="app-link-icon">✉️</div>
+        <div class="app-link-title">이메일: staur0301@naver.com</div>
+        <div class="app-link-arrow">→</div>
+      </a>
+      
+      <a href="tel:+821083701995" class="app-link">
+        <div class="app-link-icon">📱</div>
+        <div class="app-link-title">연락처: 010-8370-1995</div>
+        <div class="app-link-arrow">→</div>
+      </a>
+      
+      <a href="https://delirious-afternoon-406.notion.site/_-198b6561ca17805ea81bc96f9f1ed0c2?pvs=4" target="_blank" class="app-link">
+        <div class="app-link-icon">📊</div>
+        <div class="app-link-title">모비데이즈 포트폴리오</div>
+        <div class="app-link-arrow">→</div>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/%ED%95%9C%EC%8A%AC-%EA%B9%80-a99b81226/" target="_blank" class="app-link">
+        <div class="app-link-icon">💼</div>
+        <div class="app-link-title">LinkedIn 프로필</div>
+        <div class="app-link-arrow">→</div>
+      </a>
+      
+      <a href="https://brunch.co.kr/@8d6a65cc5265412#articles" target="_blank" class="app-link">
+        <div class="app-link-icon">✍️</div>
+        <div class="app-link-title">HR 관련 글 모음</div>
+        <div class="app-link-arrow">→</div>
+      </a>
+    </div>
+    
+    <!-- 헤이딜러 스타일 하단 네비게이션 -->
+    <nav class="bottom-nav">
+      <a href="#" class="nav-item" data-page="motivation-page">
+        <div class="nav-icon">🔍</div>
+        <div>지원동기</div>
+      </a>
+      <a href="#" class="nav-item" data-page="profile-page">
+        <div class="nav-icon">⚪</div>
+        <div>소개</div>
+      </a>
+      <a href="#" class="nav-item" data-page="career-page">
+        <div class="nav-icon">📝</div>
+        <div>경력</div>
+      </a>
+      <a href="#" class="nav-item" data-page="projects-page">
+        <div class="nav-icon">🔮</div>
+        <div>프로젝트</div>
+      </a>
+      <a href="#" class="nav-item" data-page="strategy-page">
+        <div class="nav-icon">💡</div>
+        <div>제안</div>
+      </a>
+      <a href="#" class="nav-item" data-page="contact-page">
+        <div class="nav-icon">🌐</div>
+        <div>연락처</div>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    // 페이지 전환 기능
+    const navItems = document.querySelectorAll('.nav-item');
+    const pages = document.querySelectorAll('.page');
+    
+    // 초기 페이지 설정 (지원동기 페이지가 첫 페이지)
+    window.onload = function() {
+      navItems.forEach(navItem => navItem.classList.remove('active'));
+      document.querySelector('[data-page="motivation-page"]').classList.add('active');
+      
+      // 채용 전략 제안 버튼 클릭 이벤트
+      document.getElementById('strategy-btn').addEventListener('click', function() {
+        // 페이지 전환
+        document.querySelector('.page.active').classList.add('fade-out');
+        
+        setTimeout(() => {
+          pages.forEach(page => {
+            page.classList.remove('active');
+            page.classList.remove('fade-out');
+          });
+          document.getElementById('strategy-page').classList.add('active');
+          
+          // 네비게이션 아이템 업데이트
+          navItems.forEach(navItem => navItem.classList.remove('active'));
+          document.querySelector('[data-page="strategy-page"]').classList.add('active');
+          
+          // 페이지 상단으로 스크롤
+          window.scrollTo(0, 0);
+        }, 200);
+      });
+    };
+    
+    navItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // 활성 네비게이션 아이템 변경
+        navItems.forEach(navItem => navItem.classList.remove('active'));
+        this.classList.add('active');
+        
+        // 페이지 전환 - 페이드 아웃 후 페이드 인
+        const targetPageId = this.getAttribute('data-page');
+        
+        // 모든 페이지 숨기기 (fade out)
+        document.querySelector('.page.active').classList.add('fade-out');
+        
+        setTimeout(() => {
+          pages.forEach(page => {
+            page.classList.remove('active');
+            page.classList.remove('fade-out');
+          });
+          document.getElementById(targetPageId).classList.add('active');
+          
+          // 페이지 상단으로 스크롤
+          window.scrollTo(0, 0);
+        }, 200);
+      });
+    });
+    
+    // 하이라이트 애니메이션
+    const highlights = document.querySelectorAll('.highlight');
+    highlights.forEach(highlight => {
+      highlight.addEventListener('mouseover', () => {
+        highlight.style.transform = 'scale(1.05)';
+        highlight.style.textShadow = '0 0 8px rgba(37, 212, 130, 0.6)';
+      });
+      highlight.addEventListener('mouseout', () => {
+        highlight.style.transform = 'scale(1)';
+        highlight.style.textShadow = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
