@@ -76,6 +76,12 @@
       background-color: var(--dark-bg);
       position: relative;
     }
+    /* '지원 동기'와 '채용 전략 제안' 페이지 헤더 타이틀 확대 */
+    #motivation-page .header-title,
+    #strategy-page .header-title {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
     
     /* 헤이딜러 로고 스타일 */
     .app-logo {
@@ -457,6 +463,19 @@
       margin-bottom: 20px;
       text-align: center;
     }
+    
+    /* 토글용 클래스 */
+    .more-content {
+      display: none;
+    }
+    .toggle-btn {
+      margin: 10px 20px;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -489,13 +508,17 @@
         <p>헤이딜러가 추구하는 '중고차 시장 투명화'와 '사용자 경험 혁신'처럼, 제가 추구하는 가치는 '채용의 투명성'과 '인재 경험 혁신'입니다.</p>
       </div>
       
+      <!-- 프로필 카드: 요약 + 토글 -->
       <div class="card">
         <p style="line-height: 1.7; margin-bottom: 15px;">
           스타트업에서 <span class="highlight">10명 → 63명</span> 규모로 성장하고, 이후 <span class="highlight">30명</span>으로 축소하는 과정을 경험했습니다. 이 과정에서 채용·온보딩·평가·보상 등 HR 전주기를 설계하고 운영했습니다.
         </p>
-        <p style="line-height: 1.7;">
-          현재는 <strong>채용 전략 수립</strong>, <strong>조직 구조 진단</strong>과 함께 <strong>전사 AI 도입</strong> 프로젝트를 리드하며 비즈니스 목표 달성을 위한 인재 전략을 실행하고 있습니다.
-        </p>
+        <div class="more-content">
+          <p style="line-height: 1.7;">
+            현재는 <strong>채용 전략 수립</strong>, <strong>조직 구조 진단</strong>과 함께 <strong>전사 AI 도입</strong> 프로젝트를 리드하며 비즈니스 목표 달성을 위한 인재 전략을 실행하고 있습니다.
+          </p>
+        </div>
+        <button class="toggle-btn">자세히 보기</button>
       </div>
       
       <!-- 핵심 성과 섹션 -->
@@ -634,7 +657,7 @@
         <p>문제를 정의하고, 근본 원인을 찾아내며, 데이터를 기반으로 접근하는 문제해결 방식이 제 채용 프로젝트의 핵심입니다.</p>
       </div>
       
-      <!-- 컬처핏 면접 -->
+      <!-- 컬처핏 면접 카드: 첫 문단은 항상 보이고, 나머지는 토글 -->
       <div class="card">
         <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
           <span>컬처핏 중심 면접 시스템 설계 (클래스유)</span>
@@ -642,24 +665,24 @@
         </h3>
         
         <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">문제:</strong> 기술 역량보다 <span class="highlight">문화 적합성을 우선시</span>했고, 말(의지)만 믿고 채용된 측면이 있었습니다.<br>
-          기술적 역량은 거의 보지 않고 컬처핏에 집중했으나, 실제 경험이나 행동 검증이 부족했습니다.
+          <strong style="color: var(--text-white);">문제:</strong> 기술 역량보다 <span class="highlight">문화 적합성을 우선시</span>했으나, 경험과 행동 검증 부족
         </p>
-        
-        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">접근:</strong><br>
-          1. 핵심 가치별 <span class="highlight">행동 기반 질문</span> 체계화 - 문화적 fit을 검증하면서도 실제 행동 패턴 파악<br>
-          2. 4점 척도의 평가 프레임워크 구축 (예상 응답 + 레드플래그 포함)<br>
-          3. 면접관 가이드북 제작 및 교육 진행<br>
-          4. 90일 성과 리뷰와 면접 평가 연계 분석
-        </p>
-        
-        <p style="font-size: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">결과:</strong> 리빌딩 개발팀 <span class="highlight">리텐션 100%</span> 달성 / 면접-성과 일치도 <span class="highlight">85%</span> 향상 / <strong>실제 성과와 문화적 적합성 모두 갖춘</strong> 인재 채용 성공
-        </p>
+        <div class="more-content">
+          <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+            <strong style="color: var(--text-white);">접근:</strong><br>
+            1. 핵심 가치별 <span class="highlight">행동 기반 질문</span> 체계화<br>
+            2. 4점 척도 평가 프레임워크 구축 (예상 응답 + 레드플래그 포함)<br>
+            3. 면접관 가이드북 제작 및 교육 진행<br>
+            4. 90일 성과 리뷰와 면접 평가 연계 분석
+          </p>
+          <p style="font-size: 15px; color: var(--text-light);">
+            <strong style="color: var(--text-white);">결과:</strong> 리빌딩 개발팀 <span class="highlight">리텐션 100%</span> 달성 / 면접-성과 일치도 <span class="highlight">85%</span> 향상
+          </p>
+        </div>
+        <button class="toggle-btn">자세히 보기</button>
       </div>
       
-      <!-- 채용 퍼널 -->
+      <!-- 채용 퍼널 카드 -->
       <div class="card">
         <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
           <span>채용 퍼널 최적화 프로젝트 (모비데이즈)</span>
@@ -667,23 +690,24 @@
         </h3>
         
         <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">문제:</strong> 지원자 대비 서류 합격률이 낮음 (10% 미만) / JD가 모호하고 비전과 연결성 부족
+          <strong style="color: var(--text-white);">문제:</strong> 지원자 대비 서류 합격률이 낮음 (10% 미만) / JD 불명확
         </p>
-        
-        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">접근:</strong><br>
-          1. 채널별 데이터 분석 & 우수 직원 페르소나 구축<br>
-          2. 명확한 기대치와 성장 경로가 담긴 JD 재설계<br>
-          3. 직무별 성공 사례 및 '실제 업무' 예시 포함<br>
-          4. 지속적인 JD 개선과 데이터 모니터링
-        </p>
-        
-        <p style="font-size: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">결과:</strong> PM 직군 지원자-서류합격 전환율 <span class="highlight">240%</span> 증가 / 채용 소요 기간 <span class="highlight">35%</span> 단축
-        </p>
+        <div class="more-content">
+          <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+            <strong style="color: var(--text-white);">접근:</strong><br>
+            1. 채널별 데이터 분석 & 우수 직원 페르소나 구축<br>
+            2. 명확한 기대치와 성장 경로가 담긴 JD 재설계<br>
+            3. 직무별 성공 사례 및 실제 업무 예시 포함<br>
+            4. 지속적 JD 개선과 데이터 모니터링
+          </p>
+          <p style="font-size: 15px; color: var(--text-light);">
+            <strong style="color: var(--text-white);">결과:</strong> PM 직군 서류합격 전환율 <span class="highlight">240%</span> 증가 / 채용 소요 기간 <span class="highlight">35%</span> 단축
+          </p>
+        </div>
+        <button class="toggle-btn">자세히 보기</button>
       </div>
       
-      <!-- AI 도입 프로젝트 -->
+      <!-- 전사 AI 도입 카드 -->
       <div class="card">
         <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
           <span>전사 AI 도입 계획 (모비데이즈)</span>
@@ -691,20 +715,21 @@
         </h3>
         
         <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">문제:</strong> 180명 중 20명만 AI 활용, 대부분 "어렵다" or "굳이?"라는 반응
+          <strong style="color: var(--text-white);">문제:</strong> 180명 중 20명만 AI 활용, “어렵다” 반응 다수
         </p>
-        
-        <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">접근:</strong><br>
-          1. HR팀 파일럿으로 면접 기록·문서 작업 자동화 테스트<br>
-          2. 부서별 에반젤리스트 선정 & 교육 프로그램 기획<br>
-          3. 사례 중심 교육과 실전 워크숍 계획 수립<br>
-          4. 단계별 확산 전략 수립 (현재 단계: 파일럿 운영 및 검증)
-        </p>
-        
-        <p style="font-size: 15px; color: var(--text-light);">
-          <strong style="color: var(--text-white);">목표:</strong> 면접·문서 작업 <span class="highlight">30%↓</span> / AI 활용 인원 <span class="highlight">20→100명+</span>으로 확대
-        </p>
+        <div class="more-content">
+          <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
+            <strong style="color: var(--text-white);">접근:</strong><br>
+            1. HR팀 파일럿으로 면접 기록·문서 작업 자동화 테스트<br>
+            2. 부서별 에반젤리스트 선정 및 교육 프로그램 기획<br>
+            3. 사례 중심 교육과 실전 워크숍 진행<br>
+            4. 단계별 확산 전략 수립 (현재 파일럿 운영 및 검증)
+          </p>
+          <p style="font-size: 15px; color: var(--text-light);">
+            <strong style="color: var(--text-white);">목표:</strong> 면접·문서 작업 <span class="highlight">30%↓</span> / AI 활용 인원 <span class="highlight">20→100명+</span> 확대
+          </p>
+        </div>
+        <button class="toggle-btn">자세히 보기</button>
       </div>
     </div>
     
@@ -727,21 +752,23 @@
         <p>헤이딜러처럼 시장의 고정관념을 깨는 혁신에는 '생각이 다른' 인재와 '효과적인' 조직 구조가 필요합니다.</p>
       </div>
       
+      <!-- 지원 동기 카드: 첫 섹션은 보이고, 나머지는 토글 -->
       <div class="card">
         <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">중고차 시장 혁신에 대한 열정</h3>
         <p style="line-height: 1.7; margin-bottom: 20px; color: var(--text-light);">
-          개발자 지인의 추천을 통해 헤이딜러를 알게 되었고, <strong style="color: var(--text-white);">불투명했던 중고차 시장을 '경매·데이터 기반'으로 혁신한</strong> 사례에 큰 감명을 받았습니다. '차' 자체보다는 <span class="highlight">"구조적 혁신"</span>이라는 가치가 제 커리어 가치관과 맞닿아있습니다.
+          개발자 지인의 추천을 통해 헤이딜러를 알게 되었고, <strong style="color: var(--text-white);">불투명했던 중고차 시장을 '경매·데이터 기반'으로 혁신한</strong> 사례에 큰 감명을 받았습니다. '차'보다 <span class="highlight">"구조적 혁신"</span>이 제 커리어 가치와 맞닿습니다.
         </p>
-        
-        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">채용이 곧 비즈니스 미래라는 신념</h3>
-        <p style="line-height: 1.7; margin-bottom: 20px; color: var(--text-light);">
-          저는 <strong style="color: var(--text-white);">채용이 단순 인력 충원이 아니라, 회사 미래를 함께 만드는 전략적 활동</strong>이라고 믿습니다. 3년간 컬처핏 면접을 설계·운영하며, <span class="highlight">표면적 스펙보다 '사고방식·실행력·협업 태도'</span>가 장기 성장과 이탈률에 결정적 영향을 준다는 것을 확인했습니다.
-        </p>
-        
-        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">현재 HRBP 경험 + 더 큰 임팩트</h3>
-        <p style="line-height: 1.7; color: var(--text-light);">
-          지금 몸담고 있는 회사에서도 채용 전략 및 AI 도입 프로젝트를 통해 의미 있는 변화를 만들었지만, 더욱 <span class="highlight">직접적·전사적인 비즈니스 임팩트</span>를 추구하고 싶습니다. 빠르게 확장하는 헤이딜러의 조직을 디자인하며, 스타트업의 '혁신 정신'을 가진 인재들을 발굴·육성하는 일이 제가 가장 잘할 수 있는 역할이라고 생각합니다.
-        </p>
+        <div class="more-content">
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">채용이 곧 비즈니스 미래라는 신념</h3>
+          <p style="line-height: 1.7; margin-bottom: 20px; color: var(--text-light);">
+            저는 <strong style="color: var(--text-white);">채용이 단순 인력 충원이 아닌, 회사 미래를 함께 만드는 전략적 활동</strong>임을 믿습니다. 3년간 컬처핏 면접 운영 경험으로, <span class="highlight">사고방식·실행력·협업 태도</span>가 장기 성장과 이탈률에 결정적임을 확인했습니다.
+          </p>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">현재 HRBP 경험 + 더 큰 임팩트</h3>
+          <p style="line-height: 1.7; color: var(--text-light);">
+            현재 회사에서도 채용 전략 및 AI 도입 프로젝트로 변화를 이끌었지만, 더 <span class="highlight">직접적·전사적인 비즈니스 임팩트</span>를 위해 도전하고자 합니다.
+          </p>
+        </div>
+        <button class="toggle-btn">자세히 보기</button>
       </div>
       
       <div class="btn btn-primary" style="margin: 20px 20px;" id="strategy-btn">
@@ -775,17 +802,17 @@
         </h3>
         
         <p style="font-size: 15px; margin-bottom: 15px; color: var(--text-light);">
-          최근 헤이딜러는 <strong style="color: var(--white);">중고차 판매 플랫폼</strong>에서 출발해, <strong style="color: var(--white);">중고차 생태계 전반</strong>으로 확장하는 중요한 전환점에 있습니다:
+          최근 헤이딜러는 <strong style="color: var(--white);">중고차 판매 플랫폼</strong>에서 출발해, <strong style="color: var(--white);">중고차 생태계 전반</strong>으로 확장 중입니다:
         </p>
         
         <ul style="list-style-type: none; padding-left: 0; margin-bottom: 15px;">
           <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
             <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
-            <strong style="color: var(--white);">판매 중심 → 구매 영역</strong>으로의 확장은 신뢰 메커니즘, UX 설계, 품질 보증 등 <span class="highlight">새로운 역량</span>을 요구
+            <strong style="color: var(--white);">판매 중심 → 구매 영역</strong> 확장은 신뢰 메커니즘, UX, 품질 보증 등 <span class="highlight">새로운 역량</span> 요구
           </li>
           <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
             <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
-            <strong style="color: var(--white);">고관여/저빈도 제품</strong> 특성상 리텐션과 재방문율을 높이는 <span class="highlight">장기적 고객 접점 전략</span> 필요
+            <strong style="color: var(--white);">고관여/저빈도 제품</strong> 특성상 리텐션과 재방문율을 높이는 <span class="highlight">장기 고객 접점 전략</span> 필요
           </li>
           <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
             <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
@@ -794,11 +821,11 @@
         </ul>
         
         <p style="font-size: 15px; color: var(--text-light);">
-          이러한 변화는 단순히 기능을 늘리는 것을 넘어, <strong style="color: var(--white);">기업 문화와 조직 역량</strong> 자체를 한 단계 성장시키는 일이기도 합니다.
+          이러한 변화는 기능 확장을 넘어, <strong style="color: var(--white);">기업 문화와 조직 역량</strong>을 한 단계 성장시키는 기회입니다.
         </p>
       </div>
       
-      <!-- 채용/HR 관점에서의 핵심 과제 -->
+      <!-- 채용/HR 관점 핵심 과제 -->
       <div class="card">
         <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
           <span>채용/HR 관점에서의 핵심 과제</span>
@@ -807,68 +834,52 @@
         <ul style="list-style-type: none; padding-left: 0; margin-bottom: 15px;">
           <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
             <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
-            기존 헤이딜러의 성공 DNA(투명성·실행력·고객중심)를 유지하면서도, <span class="highlight">확장된 시장</span>에 필요한 새로운 사고방식과 전문성을 갖춘 인재 확보
+            기존 성공 DNA(투명성·실행력·고객중심)를 유지하면서, <span class="highlight">확장된 시장</span>에 맞는 새로운 사고와 전문성 필요
           </li>
           <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
             <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
-            스타트업 특유의 <strong style="color: var(--white);">혁신 정신</strong>과 <strong style="color: var(--white);">치열한 실행력</strong>을 모두 갖춘 인재 발굴 및 성과 창출 환경 조성
+            스타트업 특유의 <strong style="color: var(--white);">혁신 정신</strong>과 <strong style="color: var(--white);">치열한 실행력</strong>을 갖춘 인재 확보 및 성과 창출
           </li>
           <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
             <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
-            대형 IT 기업과의 인재 경쟁 속에서, <span class="highlight">'중고차 시장 혁신'이라는 비전</span>을 매력적으로 제시
+            대형 IT 기업과의 경쟁 속에서, <span class="highlight">'중고차 시장 혁신'이라는 비전</span>을 매력적으로 제시
           </li>
           <li style="position: relative; padding-left: 12px; margin-bottom: 12px; color: var(--text-light);">
             <span style="position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background-color: var(--primary); border-radius: 50%;"></span>
-            IPO 단계에 맞춰 <strong style="color: var(--white);">ROI 관점의 채용 전략</strong> 수립
+            IPO 단계에 맞춰 <strong style="color: var(--white);">ROI 중심 채용 전략</strong> 수립
           </li>
         </ul>
       </div>
       
-      <!-- 제안하는 접근방식 -->
+      <!-- 제안하는 채용 전략 접근 카드: 첫 섹션은 보이고, 나머지는 토글 -->
       <div class="card">
         <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between;">
           <span>제안하는 채용 전략 접근</span>
         </h3>
-        
-        <!-- 역량·문화 적합성 균형 채용 시스템 -->
-        <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">1. 역량·문화 적합성 균형 채용 시스템</h4>
-        
         <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
-          '기술/비즈니스 역량 평가, 문제해결 방식, 문화 적합도' 세 축을 구조화해, <span class="highlight">일관되고 예측력 높은 면접 프로세스</span>를 설계하겠습니다.
+          1. 역량·문화 적합성 균형 채용 시스템: 기술/비즈니스 역량 평가, 문제해결 방식, 문화 적합도를 구조화해 일관된 면접 프로세스 설계
         </p>
-        
-        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
-          특히 "투명성과 실행력을 중시하는 헤이딜러 문화"를 반영해, 후보자가 <strong style="color: var(--white);">실제 상황에서 어떻게 행동했는지</strong> 구체적 사례 기반으로 검증하는 절차를 강화하고 싶습니다.
-        </p>
-        
-        <!-- 전략적 인재 파이프라인 & 브랜딩 -->
-        <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">2. 전략적 인재 파이프라인 & 브랜딩</h4>
-        
-        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
-          중고차 구매/거래 신뢰 구축, AI 기반 가격산정, 신사업 운영 등 다양한 분야를 지원할 <span class="highlight">하이브리드 인재 풀</span>을 선제적으로 발굴하겠습니다.
-        </p>
-        
-        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
-          업계 밋업, 오프라인 네트워킹, 리퍼럴 제도 등 적극적인 소싱 채널을 늘리고, <strong style="color: var(--white);">"중고차 시장 혁신"</strong>이라는 미션을 매력적으로 스토리텔링해 인재를 끌어오겠습니다.
-        </p>
-        
-        <!-- 데이터 기반 채용 & ROI 관리 -->
-        <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">3. 데이터 기반 채용 & ROI 관리</h4>
-        
-        <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
-          채용 과정에서도 <span class="highlight">데이터 분석</span>을 도입해 소스별 성과, 면접 예측력, 입사 후 성과 등을 추적·개선하겠습니다.
-        </p>
-        
-        <p style="font-size: 15px; color: var(--text-light);">
-          IPO 준비단계에 맞춰 채용 비용 대비 성과(채용 CAC), 포지션별 우선순위 설정 등 <strong style="color: var(--white);">효율성·성과 중심의 채용 투자</strong>를 전략적으로 지원하고 싶습니다.
-        </p>
+        <div class="more-content">
+          <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+            특히 "투명성과 실행력을 중시하는 헤이딜러 문화"를 반영해, 후보자가 <strong style="color: var(--white);">실제 상황에서 어떻게 행동했는지</strong> 구체적 사례 기반으로 검증하는 절차를 강화할 예정입니다.
+          </p>
+          <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">2. 전략적 인재 파이프라인 & 브랜딩</h4>
+          <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+            중고차 거래, AI 기반 가격산정, 신사업 운영 등 다양한 분야 지원을 위한 하이브리드 인재 풀을 선제적으로 발굴합니다.
+          </p>
+          <h4 style="font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--primary);">3. 데이터 기반 채용 & ROI 관리</h4>
+          <p style="font-size: 15px; margin-bottom: 12px; color: var(--text-light);">
+            채용 과정에 데이터 분석을 도입해 소스별 성과, 면접 예측력, 입사 후 성과를 추적, 개선하며 효율성·성과 중심의 채용 투자를 지원합니다.
+          </p>
+        </div>
+        <button class="toggle-btn">자세히 보기</button>
       </div>
       
-      <!-- 마무리 메시지 -->
+      <!-- 마무리 메시지 카드 -->
       <div class="card">
         <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">마무리</h3>
         <p style="line-height: 1.7; color: var(--text-light);">
-          중고차 시장은 저에게 낯선 분야이지만, 오히려 <span class="highlight">'외부자 시각'</span>이 채용·조직 운영에도 새로운 통찰을 줄 수 있으리라 믿습니다. <strong style="color: var(--white);">"불투명한 시장을 투명하게 바꾼다"</strong>는 헤이딜러의 미션에, 저의 역량과 열정을 합쳐 <strong style="color: var(--white);">다음 단계 성장</strong>에 기여하고 싶습니다.
+          중고차 시장이 낯설지만, 오히려 <span class="highlight">'외부자 시각'</span>이 채용 및 조직 운영에 새로운 통찰을 줄 수 있다고 믿습니다. <strong style="color: var(--text-white);">"불투명한 시장을 투명하게 바꾼다"</strong>는 헤이딜러의 미션에 제 역량과 열정을 더해 다음 단계 성장에 기여하고 싶습니다.
         </p>
       </div>
     </div>
@@ -1022,6 +1033,20 @@
       highlight.addEventListener('mouseout', () => {
         highlight.style.transform = 'scale(1)';
         highlight.style.textShadow = 'none';
+      });
+    });
+
+    // 토글 기능: '자세히 보기/접기'
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const content = this.previousElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+          this.textContent = '자세히 보기';
+        } else {
+          content.style.display = 'block';
+          this.textContent = '접기';
+        }
       });
     });
   </script>
